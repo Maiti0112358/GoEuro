@@ -4,7 +4,7 @@ package goeuro.javatest;
  * Class: javatest.java
  * Author: Eeran Maiti
  * Creation Date: 19 November 2014
- * Description: Takes input location and uses geoEuro API to get JSON data and write in csv file.
+ * Description: Takes input location and uses goEuro API to get JSON data and write in csv file.
  * Change Log: EMDDMMYY
  * Reference: 	http://www.tutorialspoint.com/json/json_java_example.htm
  * 				http://www.json.org/javadoc/org/json/JSONObject.html#keys%28%29
@@ -119,7 +119,8 @@ public class locationCSV {
 				JO = JA.getJSONObject(i);
 				// Look for required keys
 				sid = JO.get("_id").toString();
-				sname = JO.getString("name");
+				// For name any comma will be replaced by spaces to avoid csv mismatch
+				sname = JO.getString("name").replaceAll(",", "-");
 				stype = JO.getString("type");
 				// Look for inner object for lat & long
 				jGeo = JO.getJSONObject("geo_position");
