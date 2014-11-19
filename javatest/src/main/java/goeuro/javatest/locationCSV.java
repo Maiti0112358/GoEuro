@@ -155,7 +155,7 @@ public class locationCSV {
 		if (jA.length() > 0) {
 			lc.writeCSV(jA);
 		} else {
-			System.out.println("Information not found for "+args.toString());
+			System.out.println("Information not found for "+args[0]);
 		}
 	}
 }
